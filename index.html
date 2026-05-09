@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thermo T3 – FuXion | Activa tu Mejor Versión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --blue-dark:   #0a3a6b;
+      --blue-mid:    #1565c0;
+      --blue-light:  #4fc3f7;
+      --blue-accent: #29b6f6;
+      --green-cta:   #4caf50;
+      --green-dark:  #388e3c;
+      --white:       #ffffff;
+      --off-white:   #f4f8ff;
+      --gray-light:  #ecf2fb;
+      --gray-text:   #444c5e;
+      --gold:        #ffd54f;
+      --shadow:      0 4px 24px rgba(10,58,107,.13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--gray-text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── Utility ── */
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: var(--blue-dark);
+      line-height: 1.15;
+    }
+    .section-title span { color: var(--blue-mid); }
+
+    .btn-cta {
+  display: inline-block;
+  background:
+    linear-gradient(135deg,#43a047,#66bb6a);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  padding: 1rem 2.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  letter-spacing: .03em;
+  box-shadow:
+    0 10px 30px rgba(67,160,71,.35),
+    0 0 20px rgba(102,187,106,.18);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 18px 40px rgba(67,160,71,.42),
+    0 0 30px rgba(102,187,106,.28);
+  filter: brightness(1.04);
+}
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, #0d47a1 55%, #1e6fcc 100%);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 3rem 6vw 3rem;
+    }
+
+    /* animated steam particles */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 70% 50%, rgba(79,195,247,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(41,182,246,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ── Product image + steam ── */
+  .hero-img-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img-wrap::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background:
+    radial-gradient(circle,
+    rgba(79,195,247,.22) 0%,
+    rgba(41,182,246,.10) 35%,
+    transparent 75%);
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: 1;
+}
+
+    .hero-product-img {
+  width: min(460px, 92%);
+  border-radius: 28px;
+  filter:
+    drop-shadow(0 35px 80px rgba(0,0,0,.45))
+    drop-shadow(0 0 35px rgba(79,195,247,.18));
+  animation: floatImg 5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  transition: transform .35s ease;
+}
+
+.hero-product-img:hover {
+  transform: scale(1.03);
+}
+
+    @keyframes floatImg {
+      0%, 100% { transform: translateY(0);   }
+      50%       { transform: translateY(-12px); }
+    }
+
+    /* Steam wisps */
+    .steam-container {
+      position: absolute;
+      bottom: calc(50% + 60px);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .steam {
+      width: 8px;
+      background: linear-gradient(to top, rgba(255,255,255,.55), transparent);
+      border-radius: 50px;
+      filter: blur(3px);
+      animation: steamRise 2.8s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+    .steam:nth-child(1) { height: 50px; animation-delay: 0s;    }
+    .steam:nth-child(2) { height: 70px; animation-delay: .5s;   }
+    .steam:nth-child(3) { height: 55px; animation-delay: 1s;    }
+    .steam:nth-child(4) { height: 65px; animation-delay: 1.5s;  }
+    .steam:nth-child(5) { height: 45px; animation-delay: .3s;   }
+
+    @keyframes steamRise {
+      0%   { opacity: 0;    transform: translateY(0)     scaleX(1);   }
+      30%  { opacity: .7; }
+      70%  { opacity: .4;   transform: translateY(-60px) scaleX(1.4); }
+      100% { opacity: 0;    transform: translateY(-90px) scaleX(.8);  }
+    }
+
+    /* Floating bubbles */
+    .bubbles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bubble {
+      position: absolute;
+      bottom: -20px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      animation: rise linear infinite;
+    }
+    .bubble:nth-child(1)  { width:18px; height:18px; left:10%;  animation-duration:8s;  animation-delay:0s;   }
+    .bubble:nth-child(2)  { width:28px; height:28px; left:25%;  animation-duration:11s; animation-delay:2s;   }
+    .bubble:nth-child(3)  { width:12px; height:12px; left:40%;  animation-duration:7s;  animation-delay:1s;   }
+    .bubble:nth-child(4)  { width:22px; height:22px; left:60%;  animation-duration:9s;  animation-delay:3s;   }
+    .bubble:nth-child(5)  { width:16px; height:16px; left:75%;  animation-duration:10s; animation-delay:0.5s; }
+    .bubble:nth-child(6)  { width:30px; height:30px; left:85%;  animation-duration:12s; animation-delay:4s;   }
+
+    @keyframes rise {
+      0%   { transform: translateY(0)       rotate(0deg);   opacity:.5; }
+      100% { transform: translateY(-110vh)  rotate(360deg); opacity:0;  }
+    }
+
+    /* ── Hero copy ── */
+    .hero-copy {
+      color: var(--white);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 18px rgba(0,0,0,.25);
+    }
+    .hero-title span { color: var(--blue-light); }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 1.6rem;
+      max-width: 440px;
+    }
+    .hero-desc strong { color: var(--white); }
+
+    .hero-icons {
+      display: flex;
+      gap: 1.4rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .35rem;
+      font-size: .72rem;
+      font-weight: 600;
+      text-align: center;
+      color: rgba(255,255,255,.85);
+      max-width: 72px;
+    }
+    .hero-icon-item .icon-circle {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: 1.5px solid rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-cta-wrap { display: flex; flex-direction: column; gap: .5rem; align-items: flex-start; }
+    .hero-cta-sub {
+      font-size: .78rem;
+      color: rgba(255,255,255,.7);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .hero-cta-sub::before {
+      content: '✅';
+      font-size: .85rem;
+    }
+
+    /* ══════════════════════════════════════════
+       TRUST BAR
+    ══════════════════════════════════════════ */
+    #trust {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 2rem 6vw;
+    }
+    .trust-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .trust-item {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+    }
+    .trust-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      color: var(--blue-mid);
+    }
+    .trust-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: .2rem;
+    }
+    .trust-item p {
+      font-size: .78rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════════════
+       INGREDIENTES
+    ══════════════════════════════════════════ */
+    #ingredientes {
+      background: var(--off-white);
+      padding: 5rem 6vw;
+    }
+    .ingredientes-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .ingredientes-copy p {
+      margin-top: 1rem;
+      font-size: .93rem;
+      line-height: 1.7;
+      color: var(--gray-text);
+      max-width: 280px;
+    }
+    .ing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .ing-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(10,58,107,.08);
+      transition: transform .2s, box-shadow .2s;
+      border-top: 3px solid var(--blue-light);
+    }
+    .ing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(10,58,107,.14);
+    }
+    .ing-emoji {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .ing-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: .4rem;
+    }
+    .ing-card p {
+      font-size: .72rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
+
+    .ing-cta-wrap {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .ing-cta-sub { font-size: .8rem; color: var(--gray-text); margin-top: .5rem; }
+
+    /* ══════════════════════════════════════════
+       COMO FUNCIONA
+    ══════════════════════════════════════════ */
+    #como-funciona {
+      background: var(--white);
+      padding: 5rem 6vw;
+    }
+    .como-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .como-copy { grid-column: 1; }
+    .como-copy p {
+      margin-top: 1rem;
+      font-size: .93rem;
+      line-height: 1.7;
+      color: var(--gray-text);
+    }
+    .como-benefits {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+    .benefit-row {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+    .benefit-row::before {
+      content: '✅';
+      font-size: 1rem;
+    }
+
+    /* center image (chica) */
+    .como-img-wrap {
+      grid-column: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .chica-img {
+      width: min(300px, 90%);
+      border-radius: 24px;
+      filter: drop-shadow(0 16px 40px rgba(10,58,107,.18));
+      animation: floatImg 5s ease-in-out infinite;
+    }
+
+    .como-ideal {
+      grid-column: 3;
+      background: var(--off-white);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .como-ideal h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 1.1rem;
+    }
+    .ideal-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .86rem;
+      color: var(--gray-text);
+      margin-bottom: .75rem;
+    }
+    .ideal-item::before {
+      content: '✔';
+      color: var(--blue-mid);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ideal-quote {
+      margin-top: 1.4rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+      border-radius: 14px;
+      color: rgba(255,255,255,.92);
+      font-style: italic;
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════════════════ */
+    #testimonios {
+      background: var(--gray-light);
+      padding: 5rem 6vw;
+    }
+    .testimonios-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testi-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .testi-right h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: .8rem;
+    }
+    .testi-right p {
+      font-size: .9rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    .result-icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .result-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      text-align: center;
+    }
+    .result-icon span { font-size: 1.8rem; }
+
+    .testi-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(10,58,107,.08);
+      transition: transform .2s;
+    }
+    .testi-card:hover { transform: translateY(-4px); }
+    .testi-top {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: .8rem;
+    }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .testi-name { font-family: 'Montserrat', sans-serif; font-size: .85rem; font-weight: 700; color: var(--blue-dark); }
+    .testi-city { font-size: .74rem; color: var(--gray-text); }
+    .testi-stars { color: #ffc107; font-size: .9rem; margin-bottom: .6rem; }
+    .testi-card p { font-size: .82rem; color: var(--gray-text); line-height: 1.6; font-style: italic; }
+    .testi-note {
+      margin-top: 1.2rem;
+      font-size: .74rem;
+      color: var(--gray-text);
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════
+       CTA MIDDLE STRIP
+    ══════════════════════════════════════════ */
+    .cta-strip {
+      background: linear-gradient(90deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+      padding: 2.5rem 6vw;
+      text-align: center;
+    }
+    .cta-strip h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    #footer {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, #0d47a1 60%, #1565c0 100%);
+      color: var(--white);
+      padding: 4rem 6vw 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(79,195,247,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .footer-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .footer-copy h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: .5rem;
+      line-height: 1.1;
+    }
+    .footer-copy h2 span { color: var(--blue-light); }
+    .footer-copy p {
+      color: rgba(255,255,255,.8);
+      font-size: .92rem;
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+      max-width: 400px;
+    }
+    .footer-img-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer-product-img {
+      width: min(380px, 90%);
+      border-radius: 16px;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,.5));
+      animation: floatImg 4.5s ease-in-out infinite;
+    }
+    .footer-trust {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.15);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-trust-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,.8);
+    }
+    .footer-trust-item span { font-size: 1.1rem; }
+
+    /* ══════════════════════════════════════════
+       STICKY CTA (mobile)
+    ══════════════════════════════════════════ */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(90deg, #2e7d32, #43a047);
+      padding: .9rem 1.5rem;
+      z-index: 1000;
+      text-align: center;
+    }
+    .sticky-cta a {
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-inner         { grid-template-columns: 1fr; text-align: center; }
+      .hero-img-wrap      { order: -1; }
+      .hero-icons         { justify-content: center; }
+      .hero-cta-wrap      { align-items: center; }
+      .hero-desc          { max-width: 100%; }
+      .trust-grid         { grid-template-columns: repeat(2, 1fr); }
+      .ingredientes-inner { grid-template-columns: 1fr; }
+      .ingredientes-copy p { max-width: 100%; }
+      .como-inner         { grid-template-columns: 1fr; }
+      .como-copy          { grid-column: 1; }
+      .como-img-wrap      { grid-column: 1; }
+      .como-ideal         { grid-column: 1; }
+      .testi-header       { grid-template-columns: 1fr; }
+      .testi-cards        { grid-template-columns: 1fr; }
+      .footer-inner       { grid-template-columns: 1fr; text-align: center; }
+      .footer-copy p      { max-width: 100%; }
+      .sticky-cta         { display: block; }
+      #footer             { padding-bottom: 4rem; }
+    }
+
+    @media (max-width: 600px) {
+      .trust-grid { grid-template-columns: 1fr; }
+      .ing-grid   { grid-template-columns: repeat(2, 1fr); }
+      .result-icons { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section id="hero">
+    <div class="bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- Imagen producto (encabezado) -->
+      <div class="hero-img-wrap">
+        <div class="steam-container">
+          <div class="steam"></div>
+          <div class="steam"></div>
+          <div class="steam"></div>
+          <div class="steam"></div>
+          <div class="steam"></div>
+        </div>
+        <!--
+          INSTRUCCIÓN: Coloca el archivo "Thermo_T3_1.webp" en la misma carpeta que este index.html
+          y asegúrate de que el nombre coincida exactamente (sensible a mayúsculas).
+        -->
+        <img
+          src="Thermo_T3_1.webp"
+          alt="FuXion Thermo T3 – Bebida instantánea en polvo sabor té limón"
+          class="hero-product-img"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Copy -->
+      <div class="hero-copy">
+        <div class="hero-badge">Control de Peso y Medidas</div>
+        <h1 class="hero-title">
+          Activa tu<br/><span>Mejor Versión</span>
+        </h1>
+        <p class="hero-desc">
+          <strong>Thermo T3</strong> es tu aliado diario que promueve la
+          <strong>quema de grasa</strong>, ayuda a reducir medidas y a
+          potenciar tu energía.
+        </p>
+
+        <div class="hero-icons">
+          <div class="hero-icon-item">
+            <div class="icon-circle">🔥</div>
+            Efecto termogénico
+          </div>
+          <div class="hero-icon-item">
+            <div class="icon-circle">⚡</div>
+            Quema de grasa
+          </div>
+          <div class="hero-icon-item">
+            <div class="icon-circle">📏</div>
+            Reduce medidas
+          </div>
+        </div>
+
+        <div class="hero-cta-wrap">
+          <a href="https://tiendafuxion.com/storelt/jasanchez/3101817" target="_blank" class="btn-cta">
+            ¡Lo quiero ya! 🔥
+          </a>
+          <span class="hero-cta-sub">Producto original FuXion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TRUST BAR ══════════════ -->
+  <section id="trust">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">👥</div>
+        <div>
+          <h4>+50,000 personas</h4>
+          <p>lo consumen en todo Latinoamérica</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🌿</div>
+        <div>
+          <h4>Ingredientes naturales</h4>
+          <p>y de alta calidad</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔬</div>
+        <div>
+          <h4>Desarrollado por expertos</h4>
+          <p>en nutrición y ciencia</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <h4>Seguro y efectivo</h4>
+          <p>acompañado de dieta y ejercicio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ INGREDIENTES ══════════════ -->
+  <section id="ingredientes">
+    <div class="ingredientes-inner">
+      <div class="ingredientes-copy">
+        <div class="section-label">Lo que lo hace único</div>
+        <h2 class="section-title">Ingredientes que <span>trabajan para ti</span></h2>
+        <p>Una combinación científica y natural que activa tu metabolismo y te ayuda a lograr tus objetivos.</p>
+      </div>
+
+      <div class="ing-grid">
+        <div class="ing-card">
+          <div class="ing-emoji">🍃</div>
+          <h4>Té Verde, Negro y Rojo</h4>
+          <p>Ricos en antioxidantes y aceleran el metabolismo</p>
+        </div>
+        <div class="ing-card">
+          <div class="ing-emoji">☕</div>
+          <h4>Café Verde</h4>
+          <p>Favorece la quema de grasa de forma natural</p>
+        </div>
+        <div class="ing-card">
+          <div class="ing-emoji">💊</div>
+          <h4>L-Carnitina</h4>
+          <p>Transporta la grasa para convertirla en energía</p>
+        </div>
+        <div class="ing-card">
+          <div class="ing-emoji">🔶</div>
+          <h4>Vitamina B6</h4>
+          <p>Contribuye al metabolismo normal de proteínas</p>
+        </div>
+        <div class="ing-card">
+          <div class="ing-emoji">⚗️</div>
+          <h4>Cromo</h4>
+          <p>Ayuda a mantener niveles normales de glucosa en sangre</p>
+        </div>
+        <div class="ing-card">
+          <div class="ing-emoji">🌰</div>
+          <h4>Tamarindo Malabar</h4>
+          <p>Aporta sabor natural y propiedades digestivas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ing-cta-wrap">
+      <a href="https://tiendafuxion.com/storelt/jasanchez/3101817" target="_blank" class="btn-cta">
+        ¡Lo quiero ya! 🔥
+      </a>
+      <p class="ing-cta-sub">Empieza hoy tu cambio</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ COMO FUNCIONA ══════════════ -->
+  <section id="como-funciona">
+    <div class="como-inner">
+      <div class="como-copy">
+        <div class="section-label">Ciencia que se siente</div>
+        <h2 class="section-title">¿Cómo funciona <span>Thermo T3?</span></h2>
+        <p>Un efecto termogénico eleva la temperatura corporal, acelerando el metabolismo y ayudándola la quema de grasa.</p>
+        <div class="como-benefits">
+          <div class="benefit-row">Activa tu metabolismo</div>
+          <div class="benefit-row">Aumenta tu energía física y mental</div>
+          <div class="benefit-row">Potencia la quema de grasa</div>
+        </div>
+      </div>
+
+      <!--
+        La imagen de la chica proviene del mockup original (landing_Thermo.png).
+        Como no es un archivo separado, se simula con un placeholder estilizado.
+        Si tienes la imagen de la chica como archivo independiente, reemplaza el div
+        .chica-placeholder por:  <img src="chica.png" alt="..." class="chica-img" />
+      -->
+      <div class="como-img-wrap">
+        <div style="
+          width: min(300px, 90%);
+          height: 380px;
+          border-radius: 24px;
+          background: linear-gradient(160deg, #e3f2fd 0%, #bbdefb 40%, #90caf9 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 16px 40px rgba(10,58,107,.18);
+          animation: floatImg 5s ease-in-out infinite;
+          position: relative;
+          overflow: hidden;
+        ">
+          <div style="
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(255,255,255,.4) 0%, transparent 70%);
+          "></div>
+          <div style="text-align:center; z-index:1; padding: 1.5rem;">
+            <div style="font-size:4rem; margin-bottom:.5rem;">💪</div>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:.9rem; color:#0a3a6b; line-height:1.4;">
+              Activa tu<br/>mejor versión<br/>cada día
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="como-ideal">
+        <h3>Ideal para ti si:</h3>
+        <div class="ideal-item">Quieres bajar de peso y reducir medidas</div>
+        <div class="ideal-item">Tienes poco tiempo y necesitas energía</div>
+        <div class="ideal-item">Buscas un apoyo para tu dieta y ejercicio</div>
+        <div class="ideal-item">Quieres sentirte más ligera y saludable</div>
+        <div class="ideal-quote">
+          "No es magia, es ciencia + constancia.<br/>
+          Tu cuerpo puede, tu mente decide."
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="https://tiendafuxion.com/storelt/jasanchez/3101817" target="_blank" class="btn-cta">
+        ¡Lo quiero ya! 🔥
+      </a>
+      <p style="font-size:.8rem; color:var(--gray-text); margin-top:.5rem;">Activa tu mejor versión</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ TESTIMONIOS ══════════════ -->
+  <section id="testimonios">
+    <div class="testimonios-inner">
+      <div class="testi-header">
+        <div>
+          <div class="section-label">Resultados reales</div>
+          <h2 class="section-title">Personas reales, <span>resultados reales</span></h2>
+        </div>
+        <div class="testi-right">
+          <div class="section-label">Tu meta, nuestro compromiso</div>
+          <h3>Reduce medidas y gana confianza</h3>
+          <p>Miles de personas ya están transformando su vida con Thermo T3.</p>
+          <div class="result-icons">
+            <div class="result-icon"><span>📏</span>Menos medidas</div>
+            <div class="result-icon"><span>⚡</span>Más energía</div>
+            <div class="result-icon"><span>😊</span>Más confianza</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-cards">
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar">K</div>
+            <div>
+              <div class="testi-name">Katherine M.</div>
+              <div class="testi-city">Piura</div>
+            </div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"Desde que tomo Thermo T3 me sentí con más energía y he notado cómo mi cintura se reduce poco a poco."</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">María F.</div>
+              <div class="testi-city">Sullana</div>
+            </div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"Me encanta porque controla mi apetito y me ayuda a entrenar con más fuerza."</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar">C</div>
+            <div>
+              <div class="testi-name">Carolina A.</div>
+              <div class="testi-city">Piura</div>
+            </div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"Es el complemento perfecto para mi dieta. Me siento más ligera y activa."</p>
+        </div>
+      </div>
+
+      <p class="testi-note">* Resultados pueden variar de persona a persona. Acompañar con alimentación balanceada y ejercicio.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER / CTA FINAL ══════════════ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <div style="font-size:.72rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--blue-light); margin-bottom:.5rem;">
+          Tu cambio empieza hoy
+        </div>
+        <h2>¡Tú puedes <span>lograrlo!</span></h2>
+        <p>
+          No esperes al lunes, al próximo mes o al próximo año.<br/>
+          El mejor momento para empezar es ahora.
+        </p>
+        <a href="https://tiendafuxion.com/storelt/jasanchez/3101817" target="_blank" class="btn-cta">
+          ¡Lo quiero ya! 🔥
+        </a>
+      </div>
+
+      <!--
+        INSTRUCCIÓN: Coloca el archivo "pack_7.jpg" en la misma carpeta que este index.html.
+      -->
+      <div class="footer-img-wrap">
+        <img
+          src="pack7.png"
+          alt="FuXion Thermo T3 – Pack 7 sticks"
+          class="footer-product-img"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="footer-trust">
+      <div class="footer-trust-item"><span>🔒</span> Pago seguro</div>
+      <div class="footer-trust-item"><span>🚚</span> Envíos a todo el Perú</div>
+      <div class="footer-trust-item"><span>✅</span> Producto 100% original</div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA (visible en móvil) -->
+  <div class="sticky-cta">
+    <a href="https://tiendafuxion.com/storelt/jasanchez/3101817" target="_blank">
+      ¡Lo quiero ya! 🔥 — Comprar ahora
+    </a>
+  </div>
+
+</body>
+</html>
